@@ -19,8 +19,8 @@ module.exports = {
       'string.min': 'Password must be at least 8 characters',
     }),
     phoneNumber: Joi.string().required().messages({
-        'any.required': 'Phone number is required',
-    })
+      'any.required': 'Phone number is required',
+    }),
   }),
 
   userLoginValidator: Joi.object({
