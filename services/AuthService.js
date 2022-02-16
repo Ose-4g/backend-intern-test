@@ -36,13 +36,12 @@ class AuthService {
   async login({ email, password }) {
     const data = await this.userRepository.findUser({ email });
 
-    if (data.length == 0) throw new AppError(`user with email ${email} does not exist`, 400);
+    if (data.length == 0) throw new AppError(`user with email ${email} does not exist`, 404);
 
     const isValidPassword = await bcrypt.compare(password, data[0].password);
 
-    if (!isValidPassword) throw new AppError('Invalid username or password', 401);
+    if (!isValidPassword) throw new AppError('Invalid email or password', 401);
 
-    console.log(JSON.parse(JSON.stringify(data)));
     const accessToken = generateAccessToken(data[0].id);
     return accessToken;
   }

@@ -7,10 +7,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var errorHandler = require('./error/errorHandler');
+const connectToDB = require('./db/connectToDB');
 
 var app = express();
 
-app.use(logger('dev'));
+if(process.env.NODE_ENV==='development') app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

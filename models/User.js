@@ -12,7 +12,7 @@ const User = sequelize.define('users', {
   email: {
     type: STRING(30),
     unique: true,
-    allowNull: false,
+    allowNull:false
   },
 
   password: {

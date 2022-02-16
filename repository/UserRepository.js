@@ -17,7 +17,6 @@ class UserRepository extends Repository {
   }
 
   async findUser(filter = {}) {
-    console.log(filter);
     const data = await this.model.findAll({
       attributes: ['email', 'password', 'firstName', 'lastName', 'createdAt'],
       where: filter,

@@ -18,7 +18,6 @@ const signUp = (authService) => {
         data,
       });
     } catch (error) {
-      console.log('An error occured');
       return next(error);
     }
   };
